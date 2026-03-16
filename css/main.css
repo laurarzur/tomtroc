@@ -1,0 +1,170 @@
+/* Nav */
+.nav-div a i {
+    margin-right: 5px;
+}
+
+.notifications {
+    padding: 2.5px;
+    background-color: var(--text-color);
+    color: #FFF;
+    font-size: 8.25px;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+/* Accueil */
+.home-introduction-container {
+    gap: 78px;
+}
+
+.home-introduction-container img {
+    width: 404px;
+}
+
+.home-introduction-container .content-container {
+    width: 330px;
+    gap: 40px;
+}
+
+.home-introduction-container .text-container {
+    gap: 16px;
+}
+
+.home-introduction-container .img-container {
+    gap: 12px
+}
+
+.tiny-grey-text {
+    color: var(--secondary-text-color);
+    font-size: 12px;
+}
+
+.books-introduction-container,
+.steps-introduction-container {
+    gap: 48px;
+}
+
+.books-introduction-container h2 {
+    margin-bottom: 32px;
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.books-introduction-container>p {
+    text-align: center;
+}
+
+.books-container,
+.steps-container {
+    gap: 38px;
+}
+
+.book-card {
+    background-color: #fff;
+    width: 200px;
+    border-bottom-left-radius: var(--main-radius);
+    border-bottom-right-radius: var(--main-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.book-card-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.book-card-content {
+    padding: 20px 14px;
+    gap: 22px;
+}
+
+.book-card-infos {
+    gap: 8px
+}
+
+.one-line-clipped-text,
+.clipped-review {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /*line-clamp: 1;*/
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-card-author,
+.book-card-owner,
+.book-basic-infos p,
+.profile-avatar-container label,
+.profile-infos>p,
+.profile-form label,
+.label,
+.book-form label,
+.breadcrumb-link,
+.message-context .conversation-message-time {
+    color: var(--secondary-text-color);
+}
+
+.book-card-author,
+.profile-avatar-container label,
+.profile-infos>p,
+.library-content p,
+.profile-form label,
+.label,
+.book-form label,
+.breadcrumb-link {
+    font-size: 14px;
+}
+
+.book-card-owner {
+    font-size: 10px;
+    font-style: italic;
+}
+
+.steps-introduction-title-div {
+    width: 400px;
+    gap: 24px;
+}
+
+.step-card {
+    background-color: #fff;
+    width: 215px;
+    padding: 44px 18px;
+    border-radius: var(--main-radius);
+}
+
+.step-card p {
+    font-size: 14px;
+}
+
+.bg-img-section {
+    padding: 0;
+    background-image: url('../img/darwin-vegher-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 230px;
+}
+
+.values-section {
+    padding-bottom: 0;
+}
+
+.values-container {
+    gap: 32px;
+    width: 392px;
+    padding-bottom: 160px;
+}
+
+.values-text {
+    line-height: 1;
+    font-weight: 300;
+}
+
+.heart-svg {
+    right: -70px;
+    bottom: 70px;
+}
