@@ -29,7 +29,7 @@
             <div class="flex flex-row items-center justify-between w-full">
                 <div class="nav-div flex flex-row">
                     <a href="index.php?action=home">Accueil</a>
-                    <a href="#">Nos livres à l'échange</a>
+                    <a href="index.php?action=books">Nos livres à l'échange</a>
                 </div>
                 <div class="nav-div flex flex-row">
                     <?php

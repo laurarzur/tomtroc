@@ -21,4 +21,25 @@ class BookManager extends AbstractEntityManager
         }
         return $books;
     }
+
+    /**
+     * Récupère tous les livres disponibles à l'échange.
+     * @return array : un tableau d'objets Book.
+     */
+    public function getAllAvailableBooks(?string $title = ""): array
+    {
+        $sql = "SELECT * FROM book WHERE available = 1";
+
+        if ($title) {
+            $sql .= ' AND title LIKE "%' . $title . '%"';
+        }
+
+        $result = $this->db->query($sql);
+        $books = [];
+
+        while ($book = $result->fetch()) {
+            $books[] = new Book($book);
+        }
+        return $books;
+    }
 }
