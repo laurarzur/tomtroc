@@ -168,3 +168,47 @@
     right: -70px;
     bottom: 70px;
 }
+
+
+/* Page "Nos livres à l'échange" */
+.books-section,
+.profile-section {
+    min-height: 85vh;
+}
+
+.search-bar-container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-bar {
+    width: 322px;
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid #F0F0F0;
+    padding: 17px 12px;
+    background-color: #FFF;
+    gap: 12px;
+    transition: all 0.3s;
+}
+
+.search-bar:focus-within {
+    box-shadow: var(--box-shadow);
+}
+
+.search-input {
+    font-size: 14px;
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+.search-input::placeholder {
+    color: var(--secondary-text-color);
+}
+
+.search-bar button {
+    border: none;
+    background-color: transparent;
+}
