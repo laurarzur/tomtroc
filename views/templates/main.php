@@ -35,7 +35,7 @@
                     <?php
                     // On affiche 'Inscription' et 'Connexion' si l'utilisateur n'est pas connecté
                     if (!isset($_SESSION['user'])) { ?>
-                        <a href="#">Inscription</a>
+                        <a href="index.php?action=signup-form">Inscription</a>
                         <a href="#">Connexion</a>
                     <?php
                         // Sinon, on lui donne accès à son compte et sa messagerie
