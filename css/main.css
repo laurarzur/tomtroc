@@ -10,6 +10,7 @@
     font-size: 8.25px;
     font-weight: 700;
     border-radius: 6px;
+    margin-left: 4px;
 }
 
 /* Accueil */
@@ -350,4 +351,52 @@
 
 .error-message-container p {
     font-size: 24px;
+}
+
+/* Page inscription et connexion */
+.login-signup-content {
+    padding: 80px 0;
+    gap: 56px;
+    width: 322px;
+}
+
+.signup-login-form {
+    gap: 32px;
+}
+
+.signup-login-form div {
+    gap: 10px;
+}
+
+.signup-login-form label {
+    font-size: 14px;
+    color: var(--secondary-text-color)
+}
+
+.signup-login-form input {
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.signup-login-form input[type="text"],
+.signup-login-form input[type="email"],
+.signup-login-form input[type="password"] {
+    height: 50px;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    padding: 0 14px;
+}
+
+.wrong-form-text {
+    gap: 4px;
+}
+
+.wrong-form-text a,
+.wrong-form-text p {
+    font-size: 14px;
+}
+
+.wrong-form-text a {
+    text-decoration: underline;
 }

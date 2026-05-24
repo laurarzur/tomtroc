@@ -26,6 +26,16 @@ try {
             $bookController->showBook();
             break;
 
+        case 'signup-form':
+            $userController = new UserController();
+            $userController->showSignup();
+            break;
+
+        case 'signup':
+            $userController = new UserController();
+            $userController->signup();
+            break;
+
         default:
             throw new Exception("<p>Cette page n'est pas disponible.</p><a href='index.php'>Retour à la page d'accueil</a>");
     }
