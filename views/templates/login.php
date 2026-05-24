@@ -1,10 +1,10 @@
 <?php
-// Page d'inscription
+// Page de connexion
 ?>
 <section class="whole-page-section">
     <div class="one-sided-container larger-container right-container flex justify-between">
         <div class="login-signup-content flex flex-col">
-            <h1>Inscription</h1>
+            <h1>Connexion</h1>
             <?php if (!empty($_SESSION['form_errors'])) { ?>
                 <div class="alert-error">
                     <ul>
@@ -14,11 +14,7 @@
                     </ul>
                 </div>
             <?php } ?>
-            <form action="index.php?action=signup" method="post" class="signup-login-form flex flex-col">
-                <div class="flex flex-col">
-                    <label for="username">Pseudo</label>
-                    <input type="text" name="username" id="username" value="<?= !empty($_SESSION['old_inputs']) ? htmlspecialchars($_SESSION['old_inputs']['username']) : ''; ?>" required aria-required="true">
-                </div>
+            <form action="index.php?action=login" method="post" class="signup-login-form flex flex-col">
                 <div class="flex flex-col">
                     <label for="email">Adresse email</label>
                     <input type="email" name="email" id="email" value="<?= !empty($_SESSION['old_inputs']) ? htmlspecialchars($_SESSION['old_inputs']['email']) : ''; ?>" required aria-required="true">
@@ -27,14 +23,14 @@
                     <label for="password">Mot de passe</label>
                     <input type="password" name="password" id="password" required aria-required="true">
                 </div>
-                <input type="submit" value="S'inscrire" class="btn btn-primary">
+                <input type="submit" value="Se connecter" class="btn btn-primary">
             </form>
             <?php
             unset($_SESSION['form_errors']);
             unset($_SESSION['old_inputs']) ?>
             <div class="wrong-form-text flex flex-row">
-                <p>Déjà inscrit ?</p>
-                <a href="index.php?action=login-form">Connectez-vous</a>
+                <p>Pas de compte ?</p>
+                <a href="index.php?action=signup-form">Inscrivez-vous</a>
             </div>
         </div>
         <img src="../../img/marialaura-gionfriddo-unsplash.jpg" alt="Étagères remplies de livres" class="book-presentation-img">
