@@ -21,6 +21,11 @@ try {
             $bookController->showAllAvailableBooks();
             break;
 
+        case 'book':
+            $bookController = new BookController();
+            $bookController->showBook();
+            break;
+
         default:
             throw new Exception("<p>Cette page n'est pas disponible.</p><a href='index.php'>Retour à la page d'accueil</a>");
     }
