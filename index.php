@@ -36,6 +36,21 @@ try {
             $userController->signup();
             break;
 
+        case 'login-form':
+            $userController = new UserController();
+            $userController->showLogin();
+            break;
+
+        case 'login':
+            $userController = new UserController();
+            $userController->login();
+            break;
+
+        case 'logout':
+            $userController = new UserController();
+            $userController->logout();
+            break;
+
         default:
             throw new Exception("<p>Cette page n'est pas disponible.</p><a href='index.php'>Retour à la page d'accueil</a>");
     }
