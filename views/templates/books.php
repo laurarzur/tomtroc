@@ -19,7 +19,7 @@
         <?php if (count($books)) { ?>
             <div class="books-container">
                 <?php foreach ($books as $book) { ?>
-                    <a href="#">
+                    <a href="index.php?action=book&id=<?= $book["book"]->getId(); ?>">
                         <article class="book-card h-full">
                             <img src="img/books/<?= $book["book"]->getImg(); ?>" alt="Couverture du livre <?= $book["book"]->getTitle(); ?>" class="book-card-img">
                             <div class="book-card-content flex flex-col justify-between">

@@ -212,3 +212,142 @@
     border: none;
     background-color: transparent;
 }
+
+
+/* Page présentation livre */
+.whole-page-section {
+    padding: 0;
+}
+
+.one-sided-container {
+    flex-direction: row;
+    gap: 85px;
+    align-items: center;
+    margin: auto;
+}
+
+.left-container {
+    transform: translateX(-75px);
+}
+
+.right-container {
+    transform: translateX(75px);
+}
+
+.book-presentation-img-container,
+.book-presentation-img {
+    width: 720px;
+    height: 863px;
+}
+
+.book-presentation-img {
+    object-fit: cover;
+}
+
+.book-details {
+    padding: 80px 0;
+    gap: 32px;
+}
+
+.book-details .btn {
+    margin-top: 48px;
+}
+
+.book-basic-infos,
+.book-description-container,
+.book-owner-container {
+    gap: 16px;
+}
+
+.separator {
+    width: 27px;
+    height: 1px;
+    background-color: var(--secondary-text-color);
+}
+
+.column-title {
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}
+
+.book-description,
+.book-owner-username {
+    font-size: 14px;
+}
+
+.book-owner {
+    background-color: #FFF;
+    border-radius: 50px;
+    padding: 6px 17px 6px 6px;
+    gap: 12px;
+    transition: all 0.3s;
+}
+
+.book-owner-img {
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+}
+
+.book-owner-img-overlay {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background-color: var(--btn-color);
+    opacity: 0;
+    z-index: 1;
+}
+
+.book-owner-username,
+.book-owner-img-overlay {
+    transition: all 0.3s;
+}
+
+.book-owner-img,
+.book-owner-img-overlay {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.book-owner:hover .book-owner-img-overlay {
+    opacity: 0.7;
+}
+
+.book-owner:hover .book-owner-username {
+    color: var(--btn-color);
+    font-weight: 500;
+}
+
+.book-details a.btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* Page erreur */
+.error-section {
+    height: 85vh;
+}
+
+.error-section .container {
+    gap: 80px;
+}
+
+.error-container,
+.error-message-container {
+    gap: 48px;
+}
+
+.error-container-side p {
+    color: var(--btn-color);
+    font-size: 120px;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    line-height: 1;
+}
+
+.error-message-container p {
+    font-size: 24px;
+}
