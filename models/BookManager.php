@@ -58,4 +58,20 @@ class BookManager extends AbstractEntityManager
         }
         return null;
     }
+
+    /**
+     * Récupère tous les livres de l'utilisateur connecté.
+     * @return array : un tableau d'objets Book.
+     */
+    public function getAllBooksByOwner(): ?array
+    {
+        $sql = "SELECT * FROM book WHERE owner_id = :id";
+        $result = $this->db->query($sql, ['id' => $_SESSION['userId']]);
+        $books = [];
+
+        while ($book = $result->fetch()) {
+            $books[] = new Book($book);
+        }
+        return $books;
+    }
 }

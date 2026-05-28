@@ -41,7 +41,7 @@
                         // Sinon, on lui donne accès à son compte et sa messagerie
                     } else { ?>
                         <a href="#"><i class="fa-regular fa-comment fa-flip-horizontal" style="color: #292929;"></i>Messagerie<span class="notifications">0</span></a>
-                        <a href="#"><i class="fa-regular fa-user" style="color: #292929;"></i>Mon compte</a>
+                        <a href="index.php?action=profile"><i class="fa-regular fa-user" style="color: #292929;"></i>Mon compte</a>
                         <a href="index.php?action=logout">Déconnexion</a>
                     <?php } ?>
                 </div>

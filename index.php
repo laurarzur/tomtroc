@@ -51,6 +51,21 @@ try {
             $userController->logout();
             break;
 
+        case 'profile':
+            $userController = new UserController();
+            $userController->showProfile();
+            break;
+
+        case 'edit-profile':
+            $userController = new UserController();
+            $userController->editProfile();
+            break;
+
+        case 'edit-avatar':
+            $userController = new UserController();
+            $userController->editAvatar();
+            break;
+
         default:
             throw new Exception("<p>Cette page n'est pas disponible.</p><a href='index.php'>Retour à la page d'accueil</a>");
     }
