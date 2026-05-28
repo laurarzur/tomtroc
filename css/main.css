@@ -587,3 +587,15 @@
     margin-left: 14px;
     color: #CB2D2D;
 }
+
+/* Page Compte public */
+
+.user-profile-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 32px;
+}
+
+.user-profile-container .profile-infos-card {
+    padding: 36px 63px;
+}
