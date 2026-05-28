@@ -65,4 +65,50 @@ class UserManager extends AbstractEntityManager
         }
         return null;
     }
+
+    /**
+     * Modifie un utilisateur.
+     * @param User $user : l'utilisateur à modifier.
+     * @return void
+     */
+    public function updateUser(User $user): void
+    {
+        $sql = "UPDATE user SET username = :username, email = :email, pwd = :pwd, public = :public WHERE id = :id";
+        $this->db->query($sql, [
+            'username' => $user->getUsername(),
+            'email' => $user->getEmail(),
+            'pwd' => $user->getNewPwd() !== "" ? $user->getNewPwd() : $user->getPwd(),
+            'public' => $user->getPublic(),
+            'id' => $user->getId()
+        ]);
+    }
+
+    /**
+     * Modifie l'image de profil d'un utilisateur.
+     * @param string $fileName : l'image à insérer en BDD
+     * @param string $fileTmp : le chemin temporaire de l'image
+     * @return void
+     */
+    public function updateAvatar(string $fileName, string $fileTmp): void
+    {
+        $sql = "UPDATE user SET avatar = :avatar WHERE id = :id";
+        $this->db->query($sql, [
+            'avatar' => $fileName,
+            'id' => $_SESSION['userId']
+        ]);
+
+        $uploadDir = "img/users/";
+        move_uploaded_file($fileTmp, $uploadDir . $fileName);
+
+        $oldAvatar = $_SESSION['user']->getAvatar();
+
+        if ($oldAvatar !== "default-avatar.jpg") {
+            $oldFilePath = $uploadDir . $oldAvatar;
+            if (file_exists($oldFilePath)) {
+                unlink($oldFilePath);
+            }
+        }
+
+        $_SESSION['user']->setAvatar($fileName);
+    }
 }

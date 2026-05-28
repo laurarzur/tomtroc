@@ -37,4 +37,44 @@ class Utils
     {
         return $_REQUEST[$variableName] ?? $defaultValue;
     }
+
+    /**
+     * Vérifie si l'utilisateur est connecté. 
+     * Si ce n'est pas le cas, il est redirigé vers le formulaire de connexion.
+     * @return void
+     */
+    public static function checkIfUserIsLoggedIn(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            self::redirect('login-form');
+        }
+    }
+
+    /**
+     * Calcule le temps écoulé depuis un temps donné. 
+     * @param Datetime $datetime : le temps à partir duquel on doit calculer 
+     * @return string
+     */
+    public static function calculateTimeSinceDatetime(Datetime $datetime): string
+    {
+        $now = new DateTime();
+        $timeSince = $now->diff($datetime);
+
+        if ($timeSince->y > 0) {
+            return $timeSince->y . " an" . ($timeSince->y > 1 ? "s" : "");
+        }
+        if ($timeSince->m > 0) {
+            return $timeSince->m . " mois";
+        }
+        if ($timeSince->d > 0) {
+            return $timeSince->d . " jour" . ($timeSince->d > 1 ? "s" : "");
+        }
+        if ($timeSince->h > 0) {
+            return $timeSince->h . " heure" . ($timeSince->h > 1 ? "s" : "");
+        }
+        if ($timeSince->i > 0) {
+            return $timeSince->i . " minute" . ($timeSince->i > 1 ? "s" : "");
+        }
+        return "quelques secondes";
+    }
 }

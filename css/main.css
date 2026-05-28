@@ -400,3 +400,190 @@
 .wrong-form-text a {
     text-decoration: underline;
 }
+
+/* Page "Mon compte */
+
+.profile-container {
+    gap: 32px;
+}
+
+.profile-container h1,
+.book-form-container h1 {
+    font-size: 26px;
+}
+
+.profile-infos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+}
+
+.profile-infos-card,
+.books-table {
+    background-color: #fff;
+    border-radius: var(--secondary-radius);
+}
+
+.profile-infos-card {
+    padding: 36px 116px;
+    gap: 48px;
+}
+
+.profile-line {
+    width: 242px;
+    height: 1px;
+    background-color: var(--secondary-background-color);
+}
+
+.profile-avatar-container {
+    gap: 5px;
+}
+
+.profile-avatar {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 135px;
+    height: 135px;
+}
+
+.profile-avatar-container input,
+.book-img-form input {
+    display: none;
+}
+
+.profile-avatar-container label {
+    text-decoration: underline;
+}
+
+.profile-avatar-container label:hover,
+.book-img-form label:hover {
+    cursor: pointer;
+}
+
+.profile-infos {
+    gap: 12px;
+}
+
+.profile-infos h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.profile-library-infos {
+    margin-top: 10px;
+    gap: 6px;
+}
+
+.library-content {
+    gap: 6px;
+}
+
+.library,
+.books-table th {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 8px;
+}
+
+.profile-form-container {
+    gap: 26px;
+}
+
+.profile-form,
+.book-form {
+    gap: 32px;
+}
+
+.profile-form div,
+.book-form div {
+    gap: 10px;
+}
+
+.profile-form input:not(input[type=checkbox]),
+.book-form input,
+.book-form textarea,
+.book-form select {
+    outline: none;
+    width: 100%;
+}
+
+.profile-form input:not(input[type=submit]),
+.book-form input:not(input[type=submit]),
+.book-form textarea,
+.book-form select {
+    font-size: 14px;
+    height: 50px;
+    border-radius: var(--main-radius);
+    background-color: var(--accent-background-color);
+    border: 1px solid #F0F0F0;
+    padding: 14px 16px;
+}
+
+.profile-form #public {
+    width: unset;
+    height: unset;
+}
+
+.books-table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.books-table thead {
+    border-bottom: 1px solid var(--secondary-background-color);
+}
+
+.books-table th {
+    padding: 32px 14px 8px;
+    text-align: start;
+}
+
+.books-table tbody tr:nth-child(even) {
+    background-color: var(--accent-background-color);
+}
+
+.books-table th:first-child,
+.books-table tr td:first-child {
+    padding-left: 66px;
+}
+
+.books-table th:last-child,
+.books-table tr td:last-child {
+    padding-right: 66px;
+}
+
+.books-table tr:last-child td:first-child {
+    border-bottom-left-radius: var(--secondary-radius);
+}
+
+.books-table tr:last-child td:last-child {
+    border-bottom-right-radius: var(--secondary-radius);
+}
+
+.books-table tbody td {
+    font-size: 12px;
+    padding: 26px 14px;
+}
+
+.books-table td img {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+}
+
+.clipped-review {
+    font-style: italic;
+    /*line-clamp: 4;*/
+    -webkit-line-clamp: 4;
+    font-size: 12px;
+}
+
+.books-table td a {
+    text-decoration: underline;
+}
+
+.books-table td a:last-child {
+    margin-left: 14px;
+    color: #CB2D2D;
+}

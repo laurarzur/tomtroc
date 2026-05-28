@@ -49,7 +49,7 @@ class UserController
         $_SESSION['user'] = $user;
         $_SESSION['userId'] = $user->getId();
 
-        Utils::redirect("home");
+        Utils::redirect("profile");
     }
 
     /**
@@ -106,9 +106,124 @@ class UserController
         $_SESSION['user'] = $user;
         $_SESSION['userId'] = $user->getId();
 
-        Utils::redirect("home");
+        Utils::redirect("profile");
     }
 
+    /**
+     * Affiche le profil de l'utilisateur connecté
+     * @return void
+     */
+    public function showProfile(): void
+    {
+        Utils::checkIfUserIsLoggedIn();
+
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllBooksByOwner();
+
+        $userManager = new UserManager();
+        $user = $userManager->getUserById($_SESSION['userId']);
+
+        $view = new View("Mon compte");
+        $view->render("profile", ['user' => $user, 'books' => $books]);
+    }
+
+    /**
+     * Modifie les informations de l'utilisateur 
+     * @return void
+     */
+    public function editProfile(): void
+    {
+        Utils::checkIfUserIsLoggedIn();
+
+        $email = Utils::request("email");
+        $password = Utils::request("password");
+        $username = Utils::request("username");
+        $public = Utils::request("public") === "on" ? 1 : 0;
+
+        $errors = [];
+
+        if (empty($email) || empty($password) || empty($username)) {
+            $errors[] = "Tous les champs sont obligatoires.";
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "L'adresse email n'est pas valide.";
+        }
+
+        if (!empty($errors)) {
+            $_SESSION['form_errors'] = $errors;
+            Utils::redirect("profile");
+            return;
+        }
+
+        $user = $_SESSION['user'];
+
+        if ($user->getEmail() !== $email) {
+            $user->setEmail($email);
+        }
+
+        if ($password !== "........" && !password_verify($password, $user->getPwd())) {
+            $user->setNewPwd(password_hash($password, PASSWORD_DEFAULT));
+        }
+
+        if ($user->getUsername() !== $username) {
+            $user->setUsername(htmlspecialchars($username));
+        }
+
+        if ($user->getPublic() !== $public) {
+            $user->setPublic($public);
+        }
+
+        $userManager = new UserManager();
+        $userManager->updateUser($user);
+
+        $_SESSION['user'] = $user;
+
+        Utils::redirect("profile");
+    }
+
+    /**
+     * Modifie la photo de profil de l'utilisateur 
+     * @return void
+     */
+    public function editAvatar(): void
+    {
+
+        Utils::checkIfUserIsLoggedIn();
+
+        $fileName = $_FILES['avatar']['name'];
+        $fileTmp = $_FILES['avatar']['tmp_name'];
+        $fileSize = $_FILES['avatar']['size'];
+
+        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        $allowedExtensions = ['png', 'jpg', 'jpeg', 'webp'];
+        $maxSize = 2 * 1024 * 1024;
+
+        $errors = [];
+
+        if (!in_array($fileExtension, $allowedExtensions)) {
+            $errors[] = "Le format de l'image n'est pas valide (png, jpg, jpeg ou webp uniquement).";
+        }
+
+        if ($fileSize > $maxSize) {
+            $errors[] = "L'image est trop volumineuse. Maximum autorisé : 2 Mo.";
+        }
+
+        if (!empty($errors)) {
+            $_SESSION['img_form_errors'] = $errors;
+            Utils::redirect("profile");
+            return;
+        }
+
+        // Donne un nom aléatoire à l'image pour éviter les conflits de noms de fichiers
+        $newFileName = uniqid('avatar_', true) . '.' . $fileExtension;
+
+
+        $userManager = new UserManager();
+        $userManager->updateAvatar($newFileName, $fileTmp);
+
+        Utils::redirect("profile");
+    }
 
     /**
      * Déconnecte un utilisateur 
