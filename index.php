@@ -66,6 +66,11 @@ try {
             $userController->editAvatar();
             break;
 
+        case 'user-profile':
+            $userController = new UserController();
+            $userController->showUserProfile();
+            break;
+
         default:
             throw new Exception("<p>Cette page n'est pas disponible.</p><a href='index.php'>Retour à la page d'accueil</a>");
     }

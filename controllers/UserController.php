@@ -226,6 +226,36 @@ class UserController
     }
 
     /**
+     * Affiche le profil d'un autre utilisateur 
+     * @return void
+     */
+    public function showUserProfile(): void
+    {
+        $userId = Utils::request("id", -1);
+
+        if (!filter_var($userId, FILTER_VALIDATE_INT)) {
+            throw new Exception("<p>Cet utilisateur n'est pas disponible.</p><a href='index.php?action=books'>Voir les livres disponibles</a>");
+        }
+
+        if (isset($_SESSION['userId']) && $userId == $_SESSION['userId']) {
+            Utils::redirect('profile');
+        }
+
+        $userManager = new UserManager();
+        $user = $userManager->getUserById($userId);
+
+        if (!$user || $user->getPublic() === 0) {
+            throw new Exception('<p>Vous ne pouvez pas accéder à ce compte.</p><a href="index.php?action=books">Voir les livres disponibles</a>');
+        }
+
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllAvailableBooksByOwner($user->getId());
+
+        $view = new View("Compte public");
+        $view->render("userProfile", ['user' => $user, 'books' => $books]);
+    }
+
+    /**
      * Déconnecte un utilisateur 
      * @return void
      */

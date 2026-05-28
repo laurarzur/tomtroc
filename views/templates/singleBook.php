@@ -18,7 +18,7 @@
             </div>
             <div class="book-owner-container flex flex-col">
                 <p class="column-title">Propriétaire</p>
-                <a class="book-owner flex flex-row items-center w-fit-content relative" href="#">
+                <a class="book-owner flex flex-row items-center w-fit-content relative" <?php if ($book["owner"]->getPublic() == 1) { ?> href="<?= isset($_SESSION['userId']) && $book["owner"]->getId() == $_SESSION['userId'] ? 'index.php?action=profile' : 'index.php?action=user-profile&id=' . $book["owner"]->getId(); ?>" <?php } else { ?> title="Ce compte est privé" <?php } ?>>
                     <div class="book-owner-img-overlay"></div>
                     <img src="img/users/<?= $book["owner"]->getAvatar(); ?>" alt="Photo de profil de <?= $book["owner"]->getUsername(); ?>" class="book-owner-img">
                     <p class="book-owner-username"><?= $book["owner"]->getUsername(); ?></p>
