@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-secondary">Ajouter un livre</a>
+                <a href="index.php?action=book-form" class="btn btn-secondary">Ajouter un livre</a>
             </div>
             <div class="profile-infos-card profile-form-container flex flex-col">
                 <p>Vos informations personnelles</p>
@@ -99,8 +99,8 @@
                             </td>
                             <td><?= $book->getAvailable() == 1 ? '<p class="badge available-badge">disponible</p>' : '<p class="badge unavailable-badge">non dispo.</p>'; ?></td>
                             <td>
-                                <a href="#">Éditer</a>
-                                <a href="#">Supprimer</a>
+                                <a href="index.php?action=book-form&id=<?= $book->getId(); ?>">Éditer</a>
+                                <a href="index.php?action=delete-book&id=<?= $book->getId(); ?>" <?= Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer ce livre ?") ?>>Supprimer</a>
                             </td>
                         </tr>
                     <?php } ?>

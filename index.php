@@ -71,6 +71,26 @@ try {
             $userController->showUserProfile();
             break;
 
+        case 'book-form':
+            $bookController = new BookController();
+            $bookController->showBookForm();
+            break;
+
+        case 'edit-book':
+            $bookController = new BookController();
+            $bookController->editBook();
+            break;
+
+        case 'edit-book-img':
+            $bookController = new BookController();
+            $bookController->editBookImage();
+            break;
+
+        case 'delete-book':
+            $bookController = new BookController();
+            $bookController->deleteBook();
+            break;
+
         default:
             throw new Exception("<p>Cette page n'est pas disponible.</p><a href='index.php'>Retour à la page d'accueil</a>");
     }
