@@ -599,3 +599,66 @@
 .user-profile-container .profile-infos-card {
     padding: 36px 63px;
 }
+
+/* Page édition d'un livre */
+
+.book-form-container {
+    gap: 23px;
+}
+
+.breadcrumb-link {
+    top: -40px;
+}
+
+.book-form-block {
+    padding: 56px 50px;
+    border-radius: var(--secondary-radius);
+    background-color: #FFF;
+}
+
+.book-img-form-container {
+    gap: 10px;
+}
+
+.book-img {
+    width: 488px;
+    height: 488px;
+    object-fit: cover;
+}
+
+.book-img-form label {
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.book-form {
+    width: 435px;
+}
+
+.book-form textarea {
+    height: fit-content;
+    font-family: "Inter", sans-serif;
+}
+
+.book-form input.btn {
+    border: none;
+}
+
+.alert-error ul {
+    list-style: none;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.alert-error li {
+    padding: 8px 16px;
+    color: #AD1D00;
+    background-color: rgba(197, 109, 109, 0.1);
+    border-radius: 6px;
+}
+
+.alert-error li i {
+    margin-right: 8px;
+}
