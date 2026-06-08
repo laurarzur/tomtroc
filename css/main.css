@@ -662,3 +662,140 @@
 .alert-error li i {
     margin-right: 8px;
 }
+
+/* Page de messagerie */
+.messages-section .container {
+    height: 85vh;
+    gap: 44px;
+}
+
+.messages-section aside {
+    width: 308px;
+    background: var(--background-color);
+    padding-bottom: 27px;
+    overflow-y: auto;
+}
+
+.messages-section aside h1 {
+    font-size: 26px;
+    padding: 55px 42px 27px 34px;
+}
+
+.conversation-preview {
+    gap: 12px;
+    padding: 18px 42px 18px 34px;
+}
+
+.conversation-preview.current-conversation {
+    background-color: #FFF;
+}
+
+.conversation-interlocutor-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.conversation-preview-infos {
+    gap: 7px;
+}
+
+.conversation-interlocutor-username {
+    font-size: 14px;
+}
+
+.conversation-message-time,
+.conversation-message {
+    font-size: 12px;
+}
+
+.conversation-preview .conversation-message {
+    color: var(--secondary-text-color);
+}
+
+.conversation-container {
+    padding: 35px 0 98px;
+    gap: 98px;
+    width: 788px;
+}
+
+.conversation-container>p {
+    text-align: center;
+}
+
+.conversation-interlocutor {
+    gap: 12px;
+}
+
+.conversation-interlocutor .conversation-interlocutor-username {
+    font-weight: 600;
+}
+
+.conversation-block {
+    gap: 24px;
+    height: fit-content;
+}
+
+.overflow-block {
+    overflow-y: auto;
+    height: 377px;
+}
+
+.message-container {
+    gap: 8px;
+    max-width: 500px;
+}
+
+.message-context {
+    gap: 6px;
+}
+
+.message-container.sent .message-context {
+    align-self: flex-end;
+}
+
+.message-context .conversation-interlocutor-avatar {
+    width: 24px;
+    height: 24px;
+}
+
+.message-content {
+    padding: 10px 18px;
+    border-radius: 3px;
+    background-color: #FFF;
+    width: fit-content;
+}
+
+.message-content p {
+    font-size: 12px;
+}
+
+.sent.message-container {
+    align-self: flex-end;
+}
+
+.sent .message-content {
+    background-color: var(--accent-background-color);
+}
+
+.message-form {
+    gap: 21px;
+}
+
+.message-form input {
+    height: 49px;
+}
+
+.message-form input[type=text] {
+    width: -webkit-fill-available;
+    padding: 16px 42px;
+    border-radius: var(--main-radius);
+    border: 1px solid #F0F0F0;
+    outline: none;
+}
+
+.message-form input[type=submit] {
+    padding: 15px 35px;
+    border: none;
+}

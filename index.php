@@ -91,6 +91,16 @@ try {
             $bookController->deleteBook();
             break;
 
+        case 'messages':
+            $messageController = new MessageController();
+            $messageController->showMessagingPage();
+            break;
+
+        case 'send-message':
+            $messageController = new MessageController();
+            $messageController->sendMessage();
+            break;
+
         default:
             throw new Exception("<p>Cette page n'est pas disponible.</p><a href='index.php'>Retour à la page d'accueil</a>");
     }
