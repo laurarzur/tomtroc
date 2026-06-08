@@ -138,4 +138,18 @@ class Utils
 
         return $notifications;
     }
+
+    /**
+     * Compare le paramètre "action" de l'url avec le paramètre envoyé 
+     * et renvoi "active-url" si les paramètres sont identiques.
+     * @param string $action 
+     * @return string
+     */
+    public static function checkCurrentPage(string $action): string
+    {
+        if ($action === "home") {
+            return (!isset($_GET['action']) || $_GET['action'] === $action) ? 'active-url' : '';
+        }
+        return (isset($_GET['action']) && $_GET['action'] === $action) ? 'active-url' : '';
+    }
 }
