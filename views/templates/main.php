@@ -28,19 +28,20 @@
             </a>
             <div class="flex flex-row items-center justify-between w-full">
                 <div class="nav-div flex flex-row">
-                    <a href="index.php?action=home">Accueil</a>
-                    <a href="index.php?action=books">Nos livres à l'échange</a>
+                    <a href="index.php?action=home" class="<?= Utils::checkCurrentPage("home"); ?>">Accueil</a>
+                    <a href="index.php?action=books" class="<?= Utils::checkCurrentPage("books"); ?>">Nos livres à l'échange</a>
                 </div>
-                <div class="nav-div flex flex-row">
+                <div class=" nav-div flex flex-row">
                     <?php
                     // On affiche 'Inscription' et 'Connexion' si l'utilisateur n'est pas connecté
                     if (!isset($_SESSION['user'])) { ?>
-                        <a href="index.php?action=signup-form">Inscription</a>
-                        <a href="index.php?action=login-form">Connexion</a>
+                        <a href="index.php?action=signup-form" class="<?= Utils::checkCurrentPage("signup-form"); ?>">Inscription</a>
+                        <a href="index.php?action=login-form" class="<?= Utils::checkCurrentPage("login-form"); ?>">Connexion</a>
                     <?php
                         // Sinon, on lui donne accès à son compte et sa messagerie
                     } else { ?>
-                        <a href="index.php?action=messages"><i class="fa-regular fa-comment fa-flip-horizontal" style="color: #292929;"></i>Messagerie<?= Utils::getMessagesNotifications() ? '<span class="notifications">' . Utils::getMessagesNotifications() . '</span>' : ''; ?></a> <a href="index.php?action=profile"><i class="fa-regular fa-user" style="color: #292929;"></i>Mon compte</a>
+                        <a href="index.php?action=messages" class="<?= Utils::checkCurrentPage("messages"); ?>"><i class="fa-regular fa-comment fa-flip-horizontal" style="color: #292929;"></i>Messagerie<?= Utils::getMessagesNotifications() ? '<span class="notifications">' . Utils::getMessagesNotifications() . '</span>' : ''; ?></a>
+                        <a href="index.php?action=profile" class="<?= Utils::checkCurrentPage("profile"); ?>"><i class="fa-regular fa-user" style="color: #292929;"></i>Mon compte</a>
                         <a href="index.php?action=logout">Déconnexion</a>
                     <?php } ?>
                 </div>
