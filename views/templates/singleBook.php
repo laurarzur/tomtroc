@@ -24,7 +24,7 @@
                     <p class="book-owner-username"><?= $book["owner"]->getUsername(); ?></p>
                 </a>
             </div>
-            <a href="#" class="btn btn-primary">Envoyer un message</a>
+            <a href="index.php?action=messages&userid=<?= $book["owner"]->getId(); ?>" class="btn btn-primary">Envoyer un message</a>
         </div>
     </div>
 </section>

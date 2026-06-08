@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn btn-secondary">Écrire un message</a>
+            <a href="index.php?action=messages&userid=<?= $user->getId(); ?>" class="btn btn-secondary">Écrire un message</a>
         </div>
         <?php
         if (count($books) > 0) { ?>

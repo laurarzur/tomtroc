@@ -89,4 +89,53 @@ class Utils
     {
         return "onclick=\"return confirm('$message');\"";
     }
+
+    /**
+     * Formate une date en fonction du temps écoulé depuis
+     * de manière minimaliste ou totale. 
+     * @param Datetime $datetime : la date à formater 
+     * @param ?bool $fullFormat : date entière si true
+     * @return string
+     */
+    public static function formatDatetime(Datetime $datetime, ?bool $fullFormat = false): string
+    {
+        $now = new DateTime();
+        $timeSince = $now->diff($datetime);
+
+        if ($fullFormat) {
+            if ($timeSince->d === 0 && $timeSince->m === 0 && $timeSince->y === 0) {
+                return $datetime->format('H:i');
+            }
+            if ($timeSince->y === 0) {
+                return $datetime->format('d.m H:i');
+            }
+
+            return $datetime->format('d.m.y H:i');
+        }
+
+        if ($timeSince->d === 0 && $timeSince->m === 0 && $timeSince->y === 0) {
+            return $datetime->format('H:i');
+        }
+        if ($timeSince->y === 0) {
+            return $datetime->format('d.m');
+        }
+
+        return $datetime->format('d.m.y');
+    }
+
+    public static function getMessagesNotifications(): ?int
+    {
+        if (!isset($_SESSION['userId'])) {
+            return null;
+        }
+
+        $messageManager = new MessageManager();
+        $notifications = $messageManager->getNumberOfUnseenMessagesByUser($_SESSION['userId']);
+
+        if ($notifications === 0) {
+            return null;
+        }
+
+        return $notifications;
+    }
 }
